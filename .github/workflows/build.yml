@@ -1,4 +1,4 @@
-name: Build Watermark App
+name: Build Watermark KPU
 
 on:
   push:
