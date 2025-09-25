@@ -1,10 +1,11 @@
-name: Build Watermark KPU
+name: Build Watermark App
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -15,10 +16,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: "3.12"
 
@@ -43,7 +44,7 @@ jobs:
           dist/kpu_watermark.app
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4   # ✅ pakai v4
       with:
         name: watermark-${{ matrix.os }}
         path: |
